@@ -21,8 +21,8 @@ from Functions.LendBookDraft import *
 from Functions.ViewLentDraft import *
 from Functions.ReturnBookDraft import *
 from Functions.ViewBorrowersDraft import *
-from Functions.ViewBorrowerByName import *
-from Functions.ViewBorrowerByBookName import *
+from Functions.ViewBorrowerByNameDraft import *
+from Functions.ViewBorrowersByBookNameDraft import *
 from Imgs import *
 
 def show_frame_main(frame):
@@ -49,6 +49,10 @@ def show_frame_return_book(frame_return_book):
     returnBook(frame_return_book)
 def show_frame_view_borrowers(frame_view_borrowers):
     viewBorrowers(frame_view_borrowers)
+def show_frame_view_borrower_by_name(frame_view_borrower_by_name):
+    viewBorrowerByName(frame_view_borrower_by_name)
+def show_frame_view_borrowers_by_book_name(frame_view_borrowers_by_book_name):
+    viewBorrowersByBookName(frame_view_borrowers_by_book_name)
     # root
 root = Tk()
 root.title("Library Information Management System - Group 16")
@@ -102,6 +106,14 @@ frame_return_book.config(background="black")
 frame_view_borrowers = Frame(root, bg="black")
 frame_view_borrowers.place(relx=0, rely=0, relwidth=1, relheight=1)
 frame_view_borrowers.config(background="black")
+
+frame_view_borrowers_by_name = Frame(root, bg="black")
+frame_view_borrowers_by_name.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_borrowers_by_name.config(background="black")
+
+frame_view_borrowers_by_book_name = Frame(root, bg="black")
+frame_view_borrowers_by_book_name.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_borrowers_by_book_name.config(background="black")
 
     # buttons
 view_books_icon = PhotoImage(file = r"Imgs/view_all_icon_2.png")
@@ -189,14 +201,16 @@ view_borrowers_label = Label(frame_main, text="View Borrowers", bg="black", fg="
 view_borrowers_label.place(relx=0.55, rely=0.55, relwidth=0.1, relheight=0.05)
 
 view_borrower_by_name_icon = PhotoImage(file=r"Imgs/view_borrower_by_name_icon.png")
-button14 = Button(frame_main, image=view_borrower_by_name_icon, bg='white', fg='black', command=viewBorrowerByName)
+button14 = Button(frame_main, image=view_borrower_by_name_icon, bg='white', fg='black',
+                  command=lambda:show_frame_view_borrower_by_name(frame_view_borrowers_by_name))
 button14.place(relx=0.70, rely=0.45, relwidth=0.1, relheight=0.1)
 view_borrower_by_name_label = Label(frame_main, text="Borrowers List", bg="black", fg="white")
 view_borrower_by_name_label.place(relx=0.70, rely=0.55, relwidth=0.1, relheight=0.05)
 view_borrower_by_name_label.config(font=("Calibri", 12))
 
 view_borrower_by_book_icon = PhotoImage(file=r"Imgs/view_borrower_by_book_icon.png")
-button15 = Button(frame_main, image=view_borrower_by_book_icon, bg='white', fg='black', command=viewBorrowersByBookName)
+button15 = Button(frame_main, image=view_borrower_by_book_icon, bg='white', fg='black',
+                  command=lambda:show_frame_view_borrowers_by_book_name(frame_view_borrowers_by_book_name))
 button15.place(relx=0.85, rely=0.45, relwidth=0.1, relheight=0.1)
 view_borrower_by_book_label = Label(frame_main, text="Borrowers By Book", bg="black", fg="white")
 view_borrower_by_book_label.place(relx=0.85, rely=0.55, relwidth=0.1, relheight=0.05)
