@@ -17,10 +17,10 @@ from Functions.ViewUsersDraft import *
 from Functions.AddUserDraft import *
 from Functions.DeleteUserDraft import *
 from Functions.UpdateUserDraft import *
-from Functions.LendBook import *
-from Functions.ViewLent import *
-from Functions.ReturnBook import *
-from Functions.ViewBorrowers import *
+from Functions.LendBookDraft import *
+from Functions.ViewLentDraft import *
+from Functions.ReturnBookDraft import *
+from Functions.ViewBorrowersDraft import *
 from Functions.ViewBorrowerByName import *
 from Functions.ViewBorrowerByBookName import *
 from Imgs import *
@@ -41,6 +41,14 @@ def show_frame_delete_user(frame_delete_user):
     deleteUser(frame_delete_user)
 def show_frame_update_user(frame_update_user):
     updateUser(frame_update_user)
+def show_frame_view_lent(frame_view_lent):
+    viewLent(frame_view_lent)
+def show_frame_lend_book(frame_lend_book):
+    lendBook(frame_lend_book)
+def show_frame_return_book(frame_return_book):
+    returnBook(frame_return_book)
+def show_frame_view_borrowers(frame_view_borrowers):
+    viewBorrowers(frame_view_borrowers)
     # root
 root = Tk()
 root.title("Library Information Management System - Group 16")
@@ -79,6 +87,21 @@ frame_delete_user.place(relx=0, rely=0, relwidth=1, relheight=1)
 frame_update_user = Frame(root, bg="black")
 frame_update_user.place(relx=0, rely=0, relwidth=1, relheight=1)
 
+frame_view_lent = Frame(root, bg="black")
+frame_view_lent.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_lent.config(background="black")
+
+frame_lend_book = Frame(root, bg="black")
+frame_lend_book.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_lend_book.config(background="black")
+
+frame_return_book = Frame(root, bg="black")
+frame_return_book.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_return_book.config(background="black")
+
+frame_view_borrowers = Frame(root, bg="black")
+frame_view_borrowers.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_borrowers.config(background="black")
 
     # buttons
 view_books_icon = PhotoImage(file = r"Imgs/view_all_icon_2.png")
@@ -140,23 +163,27 @@ update_user_label.place(relx=0.70, rely=0.35, relwidth=0.1, relheight=0.05)
 view_lent_label = Label(frame_main, text="View Lent", bg="black", fg="white")
 view_lent_label.place(relx=0.05, rely=0.55, relwidth=0.1, relheight=0.05)
 view_lent_icon = PhotoImage(file=r"Imgs/view_lent.png")
-button10 = Button(frame_main, image=view_lent_icon, bg='white', fg='black', bd=0, command=viewLent)
+button10 = Button(frame_main, image=view_lent_icon, bg='white', fg='black', bd=0,
+                  command=lambda:show_frame_view_lent(frame_view_lent))
 button10.place(relx=0.05, rely=0.45, relwidth=0.1, relheight=0.1)
 
 lend_label = Label(frame_main, text="Lend Book", bg="black", fg="white")
 lend_label.place(relx=0.20, rely=0.55, relwidth=0.1, relheight=0.05)
 lend_icon = PhotoImage(file=r"Imgs/lend_book_icon.png")
-button11 = Button(frame_main, image=lend_icon, bg='white', fg='black', command=lendBook)
+button11 = Button(frame_main, image=lend_icon, bg='white', fg='black',
+                  command=lambda:show_frame_lend_book(frame_lend_book))
 button11.place(relx=0.20, rely=0.45, relwidth=0.1, relheight=0.1)
 
 return_book_label = Label(frame_main, text="Return Book", bg="black", fg="white")
 return_book_label.place(relx=0.35, rely=0.55, relwidth=0.1, relheight=0.05)
 return_book_icon = PhotoImage(file=r"Imgs/return_book_icon.png")
-button12 = Button(frame_main, image=return_book_icon, bg='white', fg='black', command=returnBook)
+button12 = Button(frame_main, image=return_book_icon, bg='white', fg='black',
+                  command=lambda:show_frame_return_book(frame_return_book))
 button12.place(relx=0.35, rely=0.45, relwidth=0.1, relheight=0.1)
 
 view_all_borrowers_icon = PhotoImage(file=r"Imgs/view_all_borrowers_icon.png")
-button13 = Button(frame_main, image=view_all_borrowers_icon, bg='white', fg='black', command=viewBorrowers)
+button13 = Button(frame_main, image=view_all_borrowers_icon, bg='white', fg='black',
+                  command=lambda:show_frame_view_borrowers(frame_view_borrowers))
 button13.place(relx=0.55, rely=0.45, relwidth=0.1, relheight=0.1)
 view_borrowers_label = Label(frame_main, text="View Borrowers", bg="black", fg="white")
 view_borrowers_label.place(relx=0.55, rely=0.55, relwidth=0.1, relheight=0.05)
