@@ -1,5 +1,4 @@
-# G16-Python-LIMS-Mod
-## pp2021
+# G16-Python-LIMS-Mod (#pp2021)
 
 > About This Project
 <p> I believe this modified version is a much better and cleaner one than the project previously committed for the final exam. </p>
