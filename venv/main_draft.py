@@ -7,7 +7,8 @@ import io
 from Database.ConnectToMySQL import *
 # from Functions.ViewBooks import *
 from Functions.ViewBooksDraft import *
-from Functions.AddBook import *
+# from Functions.AddBook import *
+from Functions.AddBookDraft import *
 from Functions.DeleteBook import *
 from Functions.UpdateBook import *
 from Functions.ViewUsers import *
@@ -22,11 +23,12 @@ from Functions.ViewBorrowerByName import *
 from Functions.ViewBorrowerByBookName import *
 from Imgs import *
 
-def show_frame_view_books(frame_view_books):
-    viewBooks(frame_view_books)
-
 def show_frame_main(frame):
     frame.tkraise()
+def show_frame_add_book(frame_add_book):
+    addBook(frame_add_book)
+def show_frame_view_books(frame_view_books):
+    viewBooks(frame_view_books)
 
 
 root = Tk()
@@ -45,8 +47,12 @@ frame_main = Frame(root, bg="black")
 frame_main.place(relx=0, rely=0, relwidth=1, relheight=1)
 frame_views_book = Frame(root, bg="black")
 frame_views_book.place(relx=0, rely=0, relwidth=1, relheight=1)
-frame_views_book.grid(column=0, row=0, sticky="we")
+# frame_views_book.grid(column=0, row=0, sticky="we")
 frame_views_book.config(background="black")
+frame_add_book = Frame(root, bg="black")
+frame_add_book.place(relx=0, rely=0, relwidth=1, relheight=1)
+# frame_add_book.grid(column=0, row=0)
+# frame_add_book.config(background="black")
 
 view_books_icon = PhotoImage(file = r"Imgs/view_all_icon_2.png")
 button1 = Button(frame_main, image=view_books_icon, bg='white', fg='black', bd=0,
@@ -56,7 +62,8 @@ view_books_label = Label(frame_main, text="View All Books", bg="black", fg="whit
 view_books_label.place(relx=0.05, rely=0.05, relwidth=0.1, relheight=0.05)
 
 add_book_icon = PhotoImage(file=r"Imgs/add_book_icon.png")
-button3 = Button(frame_main, image=add_book_icon, text="Add Book", bg='black', fg='black', bd=0, command=addBook)
+button3 = Button(frame_main, image=add_book_icon, text="Add Book", bg='black', fg='black', bd=0,
+                 command=lambda:show_frame_add_book(frame_add_book))
 button3.place(relx=0.20, rely=0.1, relwidth=0.1, relheight=0.1)
 add_book_label = Label(frame_main, text="Add Book", bg="black", fg="white")
 add_book_label.place(relx=0.2, rely=0.05, relwidth=0.1, relheight=0.05)
