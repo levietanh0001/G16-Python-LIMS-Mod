@@ -3,9 +3,6 @@
 ## About This Project
 > I believe this modified version is a much better and cleaner one than the project previously committed for the final exam.
 
-## Author
-> Le Viet Anh
-
 ## Illustrations
 
 1. Main screeen
