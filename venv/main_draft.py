@@ -9,12 +9,14 @@ from Database.ConnectToMySQL import *
 from Functions.ViewBooksDraft import *
 # from Functions.AddBook import *
 from Functions.AddBookDraft import *
-from Functions.DeleteBook import *
-from Functions.UpdateBook import *
-from Functions.ViewUsers import *
-from Functions.AddUser import *
-from Functions.DeleteUser import *
-from Functions.UpdateUser import *
+# from Functions.DeleteBook import *
+from Functions.DeleteBookDraft import *
+# from Functions.UpdateBook import *
+from Functions.UpdateBookDraft import *
+from Functions.ViewUsersDraft import *
+from Functions.AddUserDraft import *
+from Functions.DeleteUserDraft import *
+from Functions.UpdateUserDraft import *
 from Functions.LendBook import *
 from Functions.ViewLent import *
 from Functions.ReturnBook import *
@@ -29,8 +31,17 @@ def show_frame_add_book(frame_add_book):
     addBook(frame_add_book)
 def show_frame_view_books(frame_view_books):
     viewBooks(frame_view_books)
-
-
+def show_frame_update_book(frame_update_book):
+    updateBook(frame_update_book)
+def show_frame_view_users(frame_view_users):
+    viewUsers(frame_view_users)
+def show_frame_add_user(frame_add_user):
+    addUser(frame_add_user)
+def show_frame_delete_user(frame_delete_user):
+    deleteUser(frame_delete_user)
+def show_frame_update_user(frame_update_user):
+    updateUser(frame_update_user)
+    # root
 root = Tk()
 root.title("Library Information Management System - Group 16")
 root.geometry("1000x618")
@@ -38,25 +49,41 @@ root.resizable(False, False)
 root.wm_attributes('-alpha', 0.85)
 root.configure(background="black")
 
-
-# view_books_frame_style = ttk.Style()
-# view_books_frame_style.configure('Blue.TFrame', background="blue")
-# frame_views_book.config(style='Blue.TFrame')
     # frames
 frame_main = Frame(root, bg="black")
 frame_main.place(relx=0, rely=0, relwidth=1, relheight=1)
-frame_views_book = Frame(root, bg="black")
-frame_views_book.place(relx=0, rely=0, relwidth=1, relheight=1)
-# frame_views_book.grid(column=0, row=0, sticky="we")
-frame_views_book.config(background="black")
+
+frame_view_books = Frame(root, bg="black")
+frame_view_books.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_books.config(background="black")
+
 frame_add_book = Frame(root, bg="black")
 frame_add_book.place(relx=0, rely=0, relwidth=1, relheight=1)
-# frame_add_book.grid(column=0, row=0)
-# frame_add_book.config(background="black")
 
+frame_remove_book = Frame(root, bg="black")
+frame_remove_book.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+frame_update_book = Frame(root, bg="black")
+frame_update_book.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+frame_view_users = Frame(root, bg="black")
+frame_view_users.place(relx=0, rely=0, relwidth=1, relheight=1)
+frame_view_users.config(background="black")
+
+frame_add_user = Frame(root, bg="black")
+frame_add_user.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+frame_delete_user = Frame(root, bg="black")
+frame_delete_user.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+frame_update_user = Frame(root, bg="black")
+frame_update_user.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+
+    # buttons
 view_books_icon = PhotoImage(file = r"Imgs/view_all_icon_2.png")
 button1 = Button(frame_main, image=view_books_icon, bg='white', fg='black', bd=0,
-                 command=lambda:show_frame_view_books(frame_views_book))
+                 command=lambda:show_frame_view_books(frame_view_books))
 button1.place(relx=0.05, rely=0.1, relwidth=0.1, relheight=0.1)
 view_books_label = Label(frame_main, text="View All Books", bg="black", fg="white")
 view_books_label.place(relx=0.05, rely=0.05, relwidth=0.1, relheight=0.05)
@@ -69,7 +96,8 @@ add_book_label = Label(frame_main, text="Add Book", bg="black", fg="white")
 add_book_label.place(relx=0.2, rely=0.05, relwidth=0.1, relheight=0.05)
 
 remove_book_icon = PhotoImage(file=r"Imgs/remove_book_icon.png")
-button4 = Button(frame_main, image=remove_book_icon,text="Delete Book", bg='black', fg='black', bd=0, command=deleteBook)
+button4 = Button(frame_main, image=remove_book_icon,text="Delete Book", bg='black', fg='black', bd=0,
+                 command=lambda:deleteBook(frame_remove_book))
 button4.place(relx=0.35, rely=0.1, relwidth=0.1, relheight=0.1)
 remove_book_label = Label(frame_main, text="Remove Book", bg="black", fg="white")
 remove_book_label.place(relx=0.35, rely=0.05, relwidth=0.1, relheight=0.05)
@@ -77,29 +105,34 @@ remove_book_label.place(relx=0.35, rely=0.05, relwidth=0.1, relheight=0.05)
 update_book_label = Label(frame_main, text="Update Book", bg="black", fg="white")
 update_book_label.place(relx=0.2, rely=0.35, relwidth=0.1, relheight=0.05)
 update_book_icon = PhotoImage(file=r"Imgs/update_book_icon.png")
-button5 = Button(frame_main, image=update_book_icon, text="Update Book", bg='white', fg='black', bd=0, command=updateBook)
+button5 = Button(frame_main, image=update_book_icon, text="Update Book", bg='white', fg='black', bd=0,
+                 command=lambda:show_frame_update_book(frame_update_book))
 button5.place(relx=0.05, rely=0.25, relwidth=0.4, relheight=0.1)
 
 view_users_icon = PhotoImage(file=r"Imgs/view_users_icon.png")
-button6 = Button(frame_main, image=view_users_icon, text="View All Users", bg='white', fg='black', command=viewUsers)
+button6 = Button(frame_main, image=view_users_icon, text="View All Users", bg='white', fg='black',
+                 command=lambda:show_frame_view_users(frame_view_users))
 button6.place(relx=0.55, rely=0.1, relwidth=0.1, relheight=0.1)
 view_books_label = Label(frame_main, text="View All Users", bg="black", fg="white")
 view_books_label.place(relx=0.55, rely=0.05, relwidth=0.1, relheight=0.05)
 
 add_user_icon = PhotoImage(file=r"Imgs/add_user_icon.png")
-button7 = Button(frame_main, image=add_user_icon, text="Add User", bg='black', fg='black', bd=0, command=addUser)
+button7 = Button(frame_main, image=add_user_icon, text="Add User", bg='black', fg='black', bd=0,
+                 command=lambda:show_frame_add_user(frame_add_user))
 button7.place(relx=0.70, rely=0.1, relwidth=0.1, relheight=0.1)
 add_user_label = Label(frame_main, text="Add User", bg="black", fg="white")
 add_user_label.place(relx=0.70, rely=0.05, relwidth=0.1, relheight=0.05)
 
 remove_user_icon = PhotoImage(file=r"Imgs/remove_user_icon.png")
-button8 = Button(frame_main, image=remove_user_icon, text="Remove User", bg='black', fg='black', bd=0, command=deleteUser)
+button8 = Button(frame_main, image=remove_user_icon, text="Remove User", bg='black', fg='black', bd=0,
+                 command=lambda:show_frame_delete_user(frame_delete_user))
 button8.place(relx=0.85, rely=0.1, relwidth=0.1, relheight=0.1)
 add_user_label = Label(frame_main, text="Delete User", bg="black", fg="white")
 add_user_label.place(relx=0.85, rely=0.05, relwidth=0.1, relheight=0.05)
 
 update_user_icon = PhotoImage(file=r"Imgs/update_user_icon.png")
-button9 = Button(frame_main, image=update_user_icon, text="Update User", bg='white', fg='black', command=updateUser)
+button9 = Button(frame_main, image=update_user_icon, text="Update User", bg='white', fg='black',
+                 command=lambda:show_frame_update_user(frame_update_user))
 button9.place(relx=0.55, rely=0.25, relwidth=0.4, relheight=0.1)
 update_user_label = Label(frame_main, text="Update User", bg="black", fg="white")
 update_user_label.place(relx=0.70, rely=0.35, relwidth=0.1, relheight=0.05)
@@ -122,7 +155,6 @@ return_book_icon = PhotoImage(file=r"Imgs/return_book_icon.png")
 button12 = Button(frame_main, image=return_book_icon, bg='white', fg='black', command=returnBook)
 button12.place(relx=0.35, rely=0.45, relwidth=0.1, relheight=0.1)
 
-
 view_all_borrowers_icon = PhotoImage(file=r"Imgs/view_all_borrowers_icon.png")
 button13 = Button(frame_main, image=view_all_borrowers_icon, bg='white', fg='black', command=viewBorrowers)
 button13.place(relx=0.55, rely=0.45, relwidth=0.1, relheight=0.1)
@@ -142,13 +174,11 @@ button15.place(relx=0.85, rely=0.45, relwidth=0.1, relheight=0.1)
 view_borrower_by_book_label = Label(frame_main, text="Borrowers By Book", bg="black", fg="white")
 view_borrower_by_book_label.place(relx=0.85, rely=0.55, relwidth=0.1, relheight=0.05)
 
+    # unicode notepad
 def save_note(note):
     # global saved
     try:
         saved = note.get(1.0, END)
-        # note_file = open("notes.txt", "w")
-        # note_file.write(saved)
-        # note_file.close()
         with io.open("notes.txt", 'w', encoding='utf8') as f:
             f.write(saved)
         messagebox.showinfo("Success!", saved)
@@ -157,9 +187,6 @@ def save_note(note):
 def get_note(note):
     # global saved
     try:
-        # note_file = open("notes.txt", "r")
-        # note.insert(index=END, chars=saved)
-        # note.insert(index=END, chars=note_file.read())
         with io.open("notes.txt", 'r', encoding='utf8') as f:
             saved = f.read()
             note.insert(index=END, chars=saved)
@@ -176,10 +203,12 @@ button16 = Button(frame_main, image=save_icon, bg='white', fg='black',
                   command=lambda:save_note(note))
 button16.place(relx=0.05, rely=0.65, relwidth=0.04, relheight=0.15)
 
-button17 = Button(frame_main, text="Get", bg='white', fg='black',
+down_icon = PhotoImage(file=r"Imgs/down_icon.png")
+button17 = Button(frame_main, image=down_icon, bg='white', fg='black',
                   command=lambda:get_note(note))
 button17.place(relx=0.05, rely=0.80, relwidth=0.04, relheight=0.15)
 
+    # menu
 # def our_command():
 #     pass
 # my_menu = Menu(frame_main)
