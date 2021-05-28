@@ -8,7 +8,7 @@ import pymysql
 from Database.ConnectToMySQL import *
 # from main_draft import *
 
-def viewBooks(frame_views_book):
+def viewBooks(frame_view_books):
 
         # connect to database
     con = pymysql.connect(host=db_obj.get_host(), user=db_obj.get_user(),
@@ -22,10 +22,12 @@ def viewBooks(frame_views_book):
     if num_of_rows > 20:
         num_of_rows = 20
 
-    frame_views_book.pack(fill=BOTH, expand=1)
+        # show frame_view_books
+    frame_view_books.tkraise()
+    frame_view_books.pack(fill=BOTH, expand="yes")
 
         # treeview table
-    trv = ttk.Treeview(frame_views_book, columns=(1,2,3,4), height=num_of_rows)
+    trv = ttk.Treeview(frame_view_books, columns=(1,2,3,4), height=num_of_rows)
     trv_style = ttk.Style(trv)
     trv_style.configure('Treeview', background="black",
                 fieldbackground="black", foreground="white", bordercolor="black", borderwidth=0, rowheight=27)
@@ -40,16 +42,16 @@ def viewBooks(frame_views_book):
     trv.column('#1', minwidth=100, width=250)
     trv.column('#2', minwidth=100, width=250)
     trv.column('#3', minwidth=100, width=250)
-    trv.column('#4', minwidth=100, width=230)
+    trv.column('#4', minwidth=100, width=250)
     trv.delete(*trv.get_children())
     for i in rows:
         trv.insert('', 'end', values=i, tag="unchecked")
 
         # scroll bar - vertical
-    yscrollbar = ttk.Scrollbar(frame_views_book, orient="vertical", command=trv.yview)
-    yscrollbar.pack(side=RIGHT, fill=Y)
+    # yscrollbar = ttk.Scrollbar(frame_view_books, orient="vertical", command=trv.yview)
+    # yscrollbar.pack(side=RIGHT, fill=Y)
 
         # quit button
-    quit_button = Button(frame_views_book,text="Back",bg='black', fg='white', command=frame_views_book.pack_forget)
-    quit_button.place(relx=0.4,rely=0.91, relwidth=0.2, relheight=0.08)
+    quit_button = Button(frame_view_books,text="Back",bg='black', fg='white', command=frame_view_books.pack_forget)
+    quit_button.place(relx=0.8,rely=0.92, relwidth=0.2, relheight=0.08)
     # root.mainloop()

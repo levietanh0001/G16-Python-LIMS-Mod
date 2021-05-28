@@ -1,5 +1,0 @@
-https://gist.github.com/kirang89/7161185
-
-@criskubiaki By default db server can only be accessed through localhost. 
-Search for 'bind-address = 127.0.0.1' in /etc/mysql/my.cnf file. 
-Either comment out the line or delete it or make it 'bind-address = 0.0.0.0'. Retry Connecting...

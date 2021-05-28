@@ -23,7 +23,6 @@ from Functions.ViewBorrowerByBookName import *
 from Imgs import *
 
 def show_frame_view_books(frame_view_books):
-    frame_view_books.tkraise()
     viewBooks(frame_view_books)
 
 def show_frame_main(frame):
@@ -48,7 +47,6 @@ frame_views_book = Frame(root, bg="black")
 frame_views_book.place(relx=0, rely=0, relwidth=1, relheight=1)
 frame_views_book.grid(column=0, row=0, sticky="we")
 frame_views_book.config(background="black")
-
 
 view_books_icon = PhotoImage(file = r"Imgs/view_all_icon_2.png")
 button1 = Button(frame_main, image=view_books_icon, bg='white', fg='black', bd=0,
@@ -90,7 +88,7 @@ add_user_label.place(relx=0.70, rely=0.05, relwidth=0.1, relheight=0.05)
 remove_user_icon = PhotoImage(file=r"Imgs/remove_user_icon.png")
 button8 = Button(frame_main, image=remove_user_icon, text="Remove User", bg='black', fg='black', bd=0, command=deleteUser)
 button8.place(relx=0.85, rely=0.1, relwidth=0.1, relheight=0.1)
-add_user_label = Label(frame_main, text="Add User", bg="black", fg="white")
+add_user_label = Label(frame_main, text="Delete User", bg="black", fg="white")
 add_user_label.place(relx=0.85, rely=0.05, relwidth=0.1, relheight=0.05)
 
 update_user_icon = PhotoImage(file=r"Imgs/update_user_icon.png")
