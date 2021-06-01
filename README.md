@@ -7,8 +7,9 @@
 1. Run install-packages.bat 
 2. Run run-main.bat to run the program
 ### Route 2
-1. Go to venv\output\main
-2. Run main.exe
+1. Download the whole venv\output dir 
+2. Go to venv\output\main
+3. Run main.exe
 
 ## About This Project
 > I believe this modified version is a much better and cleaner one than the project previously committed for the final exam.
