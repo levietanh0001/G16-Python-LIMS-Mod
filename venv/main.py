@@ -67,7 +67,7 @@ frame_main.place(relx=0, rely=0, relwidth=1, relheight=1)
 
 frame_view_books = Frame(root, bg="black")
 frame_view_books.place(relx=0, rely=0, relwidth=1, relheight=1)
-frame_view_books.config(background="black")
+# frame_view_books.config(background="black")
 
 frame_add_book = Frame(root, bg="black")
 frame_add_book.place(relx=0, rely=0, relwidth=1, relheight=1)

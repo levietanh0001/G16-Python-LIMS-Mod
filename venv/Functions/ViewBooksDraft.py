@@ -30,8 +30,7 @@ def viewBooks(frame_view_books):
         # treeview table
     trv = ttk.Treeview(frame_view_books, columns=(1,2,3,4), height=num_of_rows)
     trv_style = ttk.Style(trv)
-    trv_style.configure('Treeview', background="black",
-                fieldbackground="black", foreground="white", bordercolor="black", borderwidth=0, rowheight=27)
+    trv_style.configure('Treeview', background="black", foreground="white", bordercolor="black", borderwidth=0, rowheight=27)
     trv.pack(side=LEFT)
     trv.place(x=0, y=0)
     trv.heading('#0', text='')
