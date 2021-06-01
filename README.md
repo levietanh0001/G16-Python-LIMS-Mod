@@ -2,7 +2,7 @@
 
 ## Before using
 1. Download the whole venv into your computer (I recommend D: drive)
-2. Go to venv\Database\ConnectToMySQL and modify this line ```python db_obj = SetDatabase(hst="localhost", usr="root", pw="123321", db="g16_db", p=3306)``` to match your database username and password
+2. Go to venv\Database\ConnectToMySQL.py and modify this line ```python db_obj = SetDatabase(hst="localhost", usr="root", pw="123321", db="g16_db", p=3306)``` to match your database username and password
 3. Run install-packages.bat 
 4. Run run-main.bat to run the program
 
