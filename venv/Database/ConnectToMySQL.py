@@ -19,4 +19,4 @@ class SetDatabase:
     def get_port(self):
         return self.port_num
 
-db_obj = SetDatabase(hst="localhost", usr="root", pw="123321", db="g16_db", p=3306)
+db_obj = SetDatabase(hst="localhost", usr="root", db="g16_db", p=3306)
