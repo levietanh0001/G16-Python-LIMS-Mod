@@ -3,8 +3,12 @@
 ## Before using
 1. Download the whole venv into your computer (I recommend D: drive)
 2. Go to venv\Database\ConnectToMySQL.py and modify this line ```python db_obj = SetDatabase(hst="localhost", usr="root", pw="123321", db="g16_db", p=3306)``` to match your database username and password
-3. Run install-packages.bat 
-4. Run run-main.bat to run the program
+### Route 1
+1. Run install-packages.bat 
+2. Run run-main.bat to run the program
+### Route 2
+1. Go to venv\output\main
+2. Run main.exe
 
 ## About This Project
 > I believe this modified version is a much better and cleaner one than the project previously committed for the final exam.
