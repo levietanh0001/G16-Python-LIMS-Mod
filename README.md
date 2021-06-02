@@ -1,6 +1,7 @@
 # G16-Python-LIMS-Mod (#pp2021)
 
 ## Before using
+> Please note that you need to create your mysql database using g16_db given in this project to run this program
 1. Download the whole venv into your computer (I recommend D: drive)
 2. Create your own database by running g16_db.sql in venv\Database
 ### Route 1
