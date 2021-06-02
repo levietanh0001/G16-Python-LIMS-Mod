@@ -4,8 +4,8 @@ class SetDatabase:
     def __init__(self, hst, usr, pw, db, p):
         self.host_name = hst
         self.user_name = usr
-        self.my_pass = pw
         self.my_db = db
+        self.my_pass = pw
         self.port_num = p
 
     def get_host(self):
@@ -19,4 +19,4 @@ class SetDatabase:
     def get_port(self):
         return self.port_num
 
-db_obj = SetDatabase(hst="localhost", usr="root", db="g16_db", p=3306)
+db_obj = SetDatabase(hst="localhost", usr="root", pw="", db="g16_db", p=3306)
