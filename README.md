@@ -7,8 +7,8 @@
 1. Run install-packages.bat 
 2. Run run-main.bat to run the program
 ### Route 2
-1. Download the whole venv\output dir 
-2. Go to venv\output\main
+1. Download the whole output dir 
+2. Go to output\main
 3. Run main.exe
 
 ## About This Project
