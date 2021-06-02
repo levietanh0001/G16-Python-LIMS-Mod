@@ -1,3 +1,15 @@
+## Main GUI
+![image](https://user-images.githubusercontent.com/47298653/120441032-5bfd8800-c3ae-11eb-98d6-a757f15e3de5.png)
+## View All Books
+![image](https://user-images.githubusercontent.com/47298653/120440991-5142f300-c3ae-11eb-938b-e193eb7ffaf9.png)
+## Add Book
+![image](https://user-images.githubusercontent.com/47298653/120440953-46885e00-c3ae-11eb-9aa6-9de91571241c.png)
+## Remove Book
+![image](https://user-images.githubusercontent.com/47298653/120440907-3bcdc900-c3ae-11eb-99b2-1caef8900901.png)
+## Update Book
+![image](https://user-images.githubusercontent.com/47298653/120440855-2ce71680-c3ae-11eb-9923-f10afc88ca41.png)
+## View Lent
+![image](https://user-images.githubusercontent.com/47298653/120440812-2062be00-c3ae-11eb-8459-253d8215fcba.png)
 ## Lend Book
 ![image](https://user-images.githubusercontent.com/47298653/120439986-53f11880-c3ad-11eb-8397-f8905fe05962.png)
 ## Return Book
